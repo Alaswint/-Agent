@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* 浅色模式变量（简约纸白风） */
+  --bg-primary: #fafafa;
+  --bg-secondary: #f4f4f5;
+  --bg-tertiary: #e4e4e7;
+  --bg-sidebar: #ffffff;
+  --bg-sidebar-hover: #f4f4f5;
+  --bg-modal: #ffffff;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+  --bg-button: #18181b;
+  --bg-button-hover: #27272a;
+  --bg-accent: #f4f4f5;
+  --bg-danger: #fef2f2;
+  --bg-warning: #fffbeb;
+
+  --text-primary: #18181b;
+  --text-secondary: #3f3f46;
+  --text-tertiary: #71717a;
+  --text-muted: #a1a1aa;
+  --text-inverse: #fafafa;
+  --text-link: #18181b;
+
+  --border-primary: #e4e4e7;
+  --border-secondary: #d4d4d8;
+  --border-focus: #18181b;
+
+  --accent-blue: #3f3f46;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+  --accent-amber: #f59e0b;
+  --accent-purple: #8b5cf6;
+}
+
+[data-theme="dark"] {
+  /* 深色模式变量（简约石墨风） */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #18181b;
+  --bg-tertiary: #27272a;
+  --bg-sidebar: #0a0a0a;
+  --bg-sidebar-hover: #18181b;
+  --bg-modal: #111113;
+  --bg-card: #18181b;
+  --bg-input: #0a0a0a;
+  --bg-button: #fafafa;
+  --bg-button-hover: #e4e4e7;
+  --bg-accent: #18181b;
+  --bg-danger: #1c1010;
+  --bg-warning: #1c1608;
+
+  --text-primary: #fafafa;
+  --text-secondary: #d4d4d8;
+  --text-tertiary: #a1a1aa;
+  --text-muted: #71717a;
+  --text-inverse: #18181b;
+  --text-link: #fafafa;
+
+  --border-primary: #27272a;
+  --border-secondary: #3f3f46;
+  --border-focus: #fafafa;
+
+  --accent-blue: #a1a1aa;
+  --accent-green: #34d399;
+  --accent-red: #f87171;
+  --accent-amber: #fbbf24;
+  --accent-purple: #a78bfa;
+}
+
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", -apple-system, "Segoe UI", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 滚动条样式（极简） */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* 输入控件统一简约边框（Tailwind gray 色板随暗色模式联动） */
+input, textarea, select {
+  border-color: theme("colors.gray.200");
+}

@@ -1,0 +1,39 @@
+{
+  "name": "roleplay-agent",
+  "version": "1.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 5000 -H 127.0.0.1",
+    "build": "next build",
+    "start": "next start -p 5000 -H 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test \"tests/**/*.test.ts\"",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write \"app/**/*.{ts,tsx}\" \"lib/**/*.ts\" \"tests/**/*.ts\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "next": "14.2.0",
+    "openai": "^4.0.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "optionalDependencies": {
+    "playwright": "^1.62.1",
+    "screenshot-desktop": "^1.15.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.0",
+    "postcss": "^8.4.0",
+    "prettier": "^3.3.0",
+    "tailwindcss": "^3.4.0",
+    "tsx": "^4.23.12",
+    "typescript": "^5.4.0"
+  }
+}
