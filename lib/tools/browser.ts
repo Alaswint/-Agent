@@ -1,6 +1,8 @@
-// playwright 为可选依赖：仅类型静态引入，运行时动态加载，
-// 未安装时返回友好提示而不是崩溃。
-import type { Browser, Page } from "playwright";
+// playwright 为可选依赖：运行时动态加载，未安装时返回友好提示。
+// 为避免未安装时类型检查失败，Browser/Page 使用 any（实际类型来自 playwright）。
+type Browser = any;
+type Page = any;
+
 import * as fs from "fs";
 import * as path from "path";
 
@@ -46,7 +48,7 @@ async function getBrowser(): Promise<Browser> {
   if (!browserInstance) {
     let chromium: any;
     try {
-      // 动态加载 playwright（可选依赖）
+      // @ts-ignore playwright 为可选依赖，未安装时走 catch 分支
       ({ chromium } = await import("playwright"));
     } catch {
       throw new Error(PLAYWRIGHT_NOT_INSTALLED);
@@ -123,7 +125,7 @@ export async function searchInWebpage(
   try {
     await page.goto(url, { waitUntil: "networkidle", timeout: 30000 });
 
-    const result = await page.evaluate((searchQuery) => {
+    const result = await page.evaluate((searchQuery: string) => {
       const text = document.body.innerText;
       const lines = text.split(/\n/).filter((l) => l.trim().length > 0);
       const snippets: string[] = [];
